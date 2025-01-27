@@ -11,8 +11,10 @@ def posts(request):
 
 
 def posts_info(request, name_post: str):
-    return HttpResponse(f'Информация о посте {name_post}')
+    context = {'name_post': name_post}
+    return render(request, 'blog/detail_by_name.html', context=context)
 
 
 def int_post(request, number_post: int):
-    return HttpResponse(f'Здесь содержится информация о посте под номером {number_post}')
+    context = {'number_post': number_post}
+    return render(request, 'blog/detail_by_number.html', context=context)
