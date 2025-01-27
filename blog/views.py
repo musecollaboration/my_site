@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.http import HttpResponse
 
 
-def home(request):
-    return HttpResponse('Главная страница')
+def index(request):
+    response = render_to_string('blog/index.html')
+    return HttpResponse(response)
 
 
 def posts(request):
